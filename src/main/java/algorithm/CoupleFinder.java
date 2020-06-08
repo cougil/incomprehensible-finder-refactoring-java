@@ -1,6 +1,7 @@
 package algorithm;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +14,7 @@ public class CoupleFinder {
     }
 
     public Optional<Couple> find(Criteria criteria) {
-        List<Couple> results = new ArrayList<Couple>();
+        List<Couple> results = new ArrayList<>();
 
         for (int i = 0; i < people.size() - 1; i++) {
             for (int j = i + 1; j < people.size(); j++) {
@@ -31,19 +32,14 @@ public class CoupleFinder {
         }
 
         Couple answer = results.get(0);
-        for (Couple potentialResult : results) {
-            if (criteria == Criteria.CLOSEST) {
-                if (potentialResult.getDifference() < answer.getDifference()) {
-                    answer = potentialResult;
-                }
-            } else if (criteria == Criteria.FARTHEST) {
-                if (potentialResult.getDifference() > answer.getDifference()) {
-                    answer = potentialResult;
-                }
-            }
-        }
-
-        return Optional.of(answer);
+        return Optional.of(
+                results.stream()
+                        .min(Comparator.comparing(couple ->
+                                Criteria.CLOSEST == criteria ?
+                                        (couple.getDifference() - answer.getDifference()) :
+                                        (answer.getDifference() - couple.getDifference())
+                        )
+                ).get());
     }
 
 }

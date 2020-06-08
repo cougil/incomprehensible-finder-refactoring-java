@@ -25,7 +25,7 @@ public class CoupleFinderTests {
 
     @Before
     public void setup() {
-        list = new ArrayList<Person>();
+        list = new ArrayList<>();
         coupleFinder = new CoupleFinder(list);
     }
 
