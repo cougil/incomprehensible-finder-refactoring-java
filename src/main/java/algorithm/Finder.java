@@ -17,7 +17,7 @@ public class Finder {
 				Couple couple = new Couple();
 				final Person firstPerson = people.get(i);
 				final Person secondPerson = people.get(j);
-				if (firstPerson.isOlderThan(secondPerson)) {
+				if (firstPerson.isYoungThan(secondPerson)) {
 					couple.youngest = firstPerson;
 					couple.oldest = secondPerson;
 				} else {

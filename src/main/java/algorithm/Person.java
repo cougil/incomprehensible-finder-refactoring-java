@@ -3,6 +3,7 @@ package algorithm;
 import java.util.Date;
 
 public class Person {
+
 	private Date birthDate;
 
 	public Person(Date birthDate) {
@@ -13,7 +14,7 @@ public class Person {
 		return birthDate;
 	}
 
-    boolean isOlderThan(Person secondPerson) {
+    boolean isYoungThan(Person secondPerson) {
         return getBirthDate().getTime() < secondPerson.getBirthDate().getTime();
     }
 }
