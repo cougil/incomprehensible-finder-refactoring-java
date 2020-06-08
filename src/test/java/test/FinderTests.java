@@ -21,7 +21,7 @@ public class FinderTests {
     private Person greg = new Person();
     private Person sarah = new Person();
     private Person mike = new Person();
-    private List<Person> list = Collections.emptyList();
+    private List<Person> list = new ArrayList<Person>();
 
     @Before
     public void setup() {
@@ -47,7 +47,6 @@ public class FinderTests {
 
     @Test
     public void Returns_Empty_Results_When_Given_One_Person() {
-        List<Person> list = new ArrayList<Person>();
         list.add(sue);
 
         Finder finder = new Finder(list);
@@ -60,7 +59,6 @@ public class FinderTests {
 
     @Test
     public void Returns_Closest_Two_For_Two_People() {
-        List<Person> list = new ArrayList<Person>();
         list.add(sue);
         list.add(greg);
         Finder finder = new Finder(list);
@@ -73,7 +71,6 @@ public class FinderTests {
 
     @Test
     public void Returns_Furthest_Two_For_Two_People() {
-        List<Person> list = new ArrayList<Person>();
         list.add(mike);
         list.add(greg);
 
@@ -87,7 +84,6 @@ public class FinderTests {
 
     @Test
     public void Returns_Furthest_Two_For_Four_People() {
-        List<Person> list = new ArrayList<Person>();
         list.add(sue);
         list.add(sarah);
         list.add(mike);
@@ -102,7 +98,6 @@ public class FinderTests {
 
     @Test
     public void Returns_Closest_Two_For_Four_People() {
-        List<Person> list = new ArrayList<Person>();
         list.add(sue);
         list.add(sarah);
         list.add(mike);
