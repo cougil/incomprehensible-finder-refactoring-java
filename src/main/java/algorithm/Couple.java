@@ -1,6 +1,9 @@
 package algorithm;
 public class Couple {
 
+	private Person youngest;
+	private Person oldest;
+
 	public Couple() {
 	}
 
@@ -9,7 +12,15 @@ public class Couple {
 		this.oldest = oldest;
 	}
 
-	public Person youngest;
-	public Person oldest;
-	public long difference;
+	public long getDifference() {
+		return getOldest().getBirthDate().getTime() - getYoungest().getBirthDate().getTime();
+	}
+
+	public Person getYoungest() {
+		return youngest;
+	}
+
+	public Person getOldest() {
+		return oldest;
+	}
 }

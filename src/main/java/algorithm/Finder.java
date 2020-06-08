@@ -14,17 +14,11 @@ public class Finder {
 
 		for (int i = 0; i < people.size() - 1; i++) {
 			for (int j = i + 1; j < people.size(); j++) {
-				Couple couple = new Couple();
 				final Person firstPerson = people.get(i);
 				final Person secondPerson = people.get(j);
-				if (firstPerson.isYoungThan(secondPerson)) {
-					couple.youngest = firstPerson;
-					couple.oldest = secondPerson;
-				} else {
-					couple.youngest = secondPerson;
-					couple.oldest = firstPerson;
-				}
-				couple.difference = couple.oldest.getBirthDate().getTime() - couple.youngest.getBirthDate().getTime();
+				Couple couple = firstPerson.isYoungThan(secondPerson) ?
+					new Couple(firstPerson, secondPerson) :
+					new Couple(secondPerson, firstPerson);
 				results.add(couple);
 			}
 		}
@@ -37,13 +31,13 @@ public class Finder {
 		for (Couple potentialResult : results) {
 			switch (criteria) {
 				case CLOSEST:
-					if (potentialResult.difference < answer.difference) {
+					if (potentialResult.getDifference() < answer.getDifference()) {
 						answer = potentialResult;
 					}
 					break;
 
 				case FARTHEST:
-					if (potentialResult.difference > answer.difference) {
+					if (potentialResult.getDifference() > answer.getDifference()) {
 						answer = potentialResult;
 					}
 					break;
