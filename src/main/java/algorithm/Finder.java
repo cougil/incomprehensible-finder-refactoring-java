@@ -9,7 +9,7 @@ public class Finder {
 		_p = p;
 	}
 
-	public F Find(FT ft) {
+	public F find(FT ft) {
 		List<F> tr = new ArrayList<F>();
 
 		for (int i = 0; i < _p.size() - 1; i++) {
