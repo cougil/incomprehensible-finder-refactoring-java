@@ -15,12 +15,14 @@ public class Finder {
 		for (int i = 0; i < people.size() - 1; i++) {
 			for (int j = i + 1; j < people.size(); j++) {
 				Couple couple = new Couple();
-				if (people.get(i).getBirthDate().getTime() < people.get(j).getBirthDate().getTime()) {
-					couple.youngest = people.get(i);
-					couple.oldest = people.get(j);
+				final Person firstPerson = people.get(i);
+				final Person secondPerson = people.get(j);
+				if (firstPerson.isOlderThan(secondPerson)) {
+					couple.youngest = firstPerson;
+					couple.oldest = secondPerson;
 				} else {
-					couple.youngest = people.get(j);
-					couple.oldest = people.get(i);
+					couple.youngest = secondPerson;
+					couple.oldest = firstPerson;
 				}
 				couple.difference = couple.oldest.getBirthDate().getTime() - couple.youngest.getBirthDate().getTime();
 				results.add(couple);
@@ -50,4 +52,5 @@ public class Finder {
 
 		return answer;
 	}
+
 }

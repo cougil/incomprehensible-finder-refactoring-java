@@ -12,5 +12,9 @@ public class Person {
 	public Date getBirthDate() {
 		return birthDate;
 	}
+
+    boolean isOlderThan(Person secondPerson) {
+        return getBirthDate().getTime() < secondPerson.getBirthDate().getTime();
+    }
 }
 

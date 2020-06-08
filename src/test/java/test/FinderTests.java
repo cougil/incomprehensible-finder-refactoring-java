@@ -24,7 +24,7 @@ public class FinderTests {
     private Finder finder;
 
     @Before
-    public void setUp() {
+    public void setup() {
         list = new ArrayList<Person>();
         finder = new Finder(list);
     }
