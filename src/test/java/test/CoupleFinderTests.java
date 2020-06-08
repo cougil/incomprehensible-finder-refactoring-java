@@ -10,9 +10,9 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 public class CoupleFinderTests {
 
@@ -32,20 +32,18 @@ public class CoupleFinderTests {
     @Test
     public void returns_empty_results_when_given_empty_list() {
 
-        Couple couple = coupleFinder.find(Criteria.CLOSEST);
-        assertNull(couple.getYoungest());
+        Optional<Couple> couple = coupleFinder.find(Criteria.CLOSEST);
 
-        assertNull(couple.getOldest());
+        assertEquals(Optional.empty(), couple);
     }
 
     @Test
     public void returns_empty_results_when_given_one_person() {
         list.add(sue);
 
-        Couple couple = coupleFinder.find(Criteria.CLOSEST);
+        Optional<Couple> couple = coupleFinder.find(Criteria.CLOSEST);
 
-        assertNull(couple.getYoungest());
-        assertNull(couple.getOldest());
+        assertEquals(Optional.empty(), couple);
     }
 
     @Test
@@ -53,7 +51,7 @@ public class CoupleFinderTests {
         list.add(sue);
         list.add(greg);
 
-        Couple couple = coupleFinder.find(Criteria.CLOSEST);
+        Couple couple = coupleFinder.find(Criteria.CLOSEST).get();
 
         assertEquals(sue, couple.getYoungest());
         assertEquals(greg, couple.getOldest());
@@ -64,7 +62,7 @@ public class CoupleFinderTests {
         list.add(mike);
         list.add(greg);
 
-        Couple couple = coupleFinder.find(Criteria.FARTHEST);
+        Couple couple = coupleFinder.find(Criteria.FARTHEST).get();
 
         assertEquals(greg, couple.getYoungest());
         assertEquals(mike, couple.getOldest());
@@ -77,7 +75,7 @@ public class CoupleFinderTests {
         list.add(mike);
         list.add(greg);
 
-        Couple couple = coupleFinder.find(Criteria.FARTHEST);
+        Couple couple = coupleFinder.find(Criteria.FARTHEST).get();
 
         assertEquals(sue, couple.getYoungest());
         assertEquals(sarah, couple.getOldest());
@@ -90,7 +88,7 @@ public class CoupleFinderTests {
         list.add(mike);
         list.add(greg);
 
-        Couple couple = coupleFinder.find(Criteria.CLOSEST);
+        Couple couple = coupleFinder.find(Criteria.CLOSEST).get();
 
         assertEquals(sue, couple.getYoungest());
         assertEquals(greg, couple.getOldest());

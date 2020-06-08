@@ -2,6 +2,7 @@ package algorithm;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class CoupleFinder {
 
@@ -11,7 +12,7 @@ public class CoupleFinder {
         this.people = people;
     }
 
-    public Couple find(Criteria criteria) {
+    public Optional<Couple> find(Criteria criteria) {
         List<Couple> results = new ArrayList<Couple>();
 
         for (int i = 0; i < people.size() - 1; i++) {
@@ -26,7 +27,7 @@ public class CoupleFinder {
         }
 
         if (results.size() < 1) {
-            return new Couple();
+            return Optional.empty();
         }
 
         Couple answer = results.get(0);
@@ -42,7 +43,7 @@ public class CoupleFinder {
             }
         }
 
-        return answer;
+        return Optional.of(answer);
     }
 
 }

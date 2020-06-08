@@ -4,9 +4,6 @@ public class Couple {
 	private Person youngest;
 	private Person oldest;
 
-	public Couple() {
-	}
-
 	public Couple(Person youngest, Person oldest) {
 		this.youngest = youngest;
 		this.oldest = oldest;
