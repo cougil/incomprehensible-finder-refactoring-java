@@ -15,14 +15,14 @@ public class Finder {
 		for (int i = 0; i < people.size() - 1; i++) {
 			for (int j = i + 1; j < people.size(); j++) {
 				Couple couple = new Couple();
-				if (people.get(i).birthDate.getTime() < people.get(j).birthDate.getTime()) {
+				if (people.get(i).getBirthDate().getTime() < people.get(j).getBirthDate().getTime()) {
 					couple.youngest = people.get(i);
 					couple.oldest = people.get(j);
 				} else {
 					couple.youngest = people.get(j);
 					couple.oldest = people.get(i);
 				}
-				couple.difference = couple.oldest.birthDate.getTime() - couple.youngest.birthDate.getTime();
+				couple.difference = couple.oldest.getBirthDate().getTime() - couple.youngest.getBirthDate().getTime();
 				results.add(couple);
 			}
 		}
