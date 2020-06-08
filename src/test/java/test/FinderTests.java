@@ -31,7 +31,6 @@ public class FinderTests {
         greg.birthDate = new Date(52, 5, 1);
         sarah.name = "Sarah";
         sarah.birthDate = new Date(82, 0, 1);
-        mike = new Person();
         mike.name = "Mike";
         mike.birthDate = new Date(79, 0, 1);
     }
