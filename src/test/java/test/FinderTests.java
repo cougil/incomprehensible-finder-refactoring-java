@@ -30,7 +30,7 @@ public class FinderTests {
     }
 
     @Test
-    public void Returns_Empty_Results_When_Given_Empty_List() {
+    public void returns_empty_results_when_given_empty_list() {
 
         Couple couple = finder.find(Criteria.CLOSEST);
         assertNull(couple.youngest);
@@ -39,7 +39,7 @@ public class FinderTests {
     }
 
     @Test
-    public void Returns_Empty_Results_When_Given_One_Person() {
+    public void returns_empty_results_when_given_one_person() {
         list.add(sue);
 
         Couple couple = finder.find(Criteria.CLOSEST);
@@ -49,7 +49,7 @@ public class FinderTests {
     }
 
     @Test
-    public void Returns_Closest_Two_For_Two_People() {
+    public void returns_closest_two_for_two_people() {
         list.add(sue);
         list.add(greg);
 
@@ -60,7 +60,7 @@ public class FinderTests {
     }
 
     @Test
-    public void Returns_Furthest_Two_For_Two_People() {
+    public void returns_furthest_two_for_two_people() {
         list.add(mike);
         list.add(greg);
 
@@ -71,7 +71,7 @@ public class FinderTests {
     }
 
     @Test
-    public void Returns_Furthest_Two_For_Four_People() {
+    public void returns_furthest_two_for_four_people() {
         list.add(sue);
         list.add(sarah);
         list.add(mike);
@@ -84,7 +84,7 @@ public class FinderTests {
     }
 
     @Test
-    public void Returns_Closest_Two_For_Four_People() {
+    public void returns_closest_two_for_four_people() {
         list.add(sue);
         list.add(sarah);
         list.add(mike);
