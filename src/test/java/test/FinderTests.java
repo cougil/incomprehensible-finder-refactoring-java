@@ -40,9 +40,9 @@ public class FinderTests {
         Finder finder = new Finder(list);
 
         Couple couple = finder.find(Criteria.CLOSEST);
-        assertEquals(null, couple.firstPerson);
+        assertEquals(null, couple.youngest);
 
-        assertEquals(null, couple.secondPerson);
+        assertEquals(null, couple.oldest);
     }
 
     @Test
@@ -54,8 +54,8 @@ public class FinderTests {
 
         Couple couple = finder.find(Criteria.CLOSEST);
 
-        assertEquals(null, couple.firstPerson);
-        assertEquals(null, couple.secondPerson);
+        assertEquals(null, couple.youngest);
+        assertEquals(null, couple.oldest);
     }
 
     @Test
@@ -67,8 +67,8 @@ public class FinderTests {
 
         Couple couple = finder.find(Criteria.CLOSEST);
 
-        assertEquals(sue, couple.firstPerson);
-        assertEquals(greg, couple.secondPerson);
+        assertEquals(sue, couple.youngest);
+        assertEquals(greg, couple.oldest);
     }
 
     @Test
@@ -81,8 +81,8 @@ public class FinderTests {
 
         Couple couple = finder.find(Criteria.FARTHEST);
 
-        assertEquals(greg, couple.firstPerson);
-        assertEquals(mike, couple.secondPerson);
+        assertEquals(greg, couple.youngest);
+        assertEquals(mike, couple.oldest);
     }
 
     @Test
@@ -96,8 +96,8 @@ public class FinderTests {
 
         Couple couple = finder.find(Criteria.FARTHEST);
 
-        assertEquals(sue, couple.firstPerson);
-        assertEquals(sarah, couple.secondPerson);
+        assertEquals(sue, couple.youngest);
+        assertEquals(sarah, couple.oldest);
     }
 
     @Test
@@ -112,8 +112,8 @@ public class FinderTests {
 
         Couple couple = finder.find(Criteria.CLOSEST);
 
-        assertEquals(sue, couple.firstPerson);
-        assertEquals(greg, couple.secondPerson);
+        assertEquals(sue, couple.youngest);
+        assertEquals(greg, couple.oldest);
     }
 
 }

@@ -10,29 +10,29 @@ public class Finder {
 	}
 
 	public Couple find(Criteria criteria) {
-		List<Couple> tr = new ArrayList<Couple>();
+		List<Couple> results = new ArrayList<Couple>();
 
 		for (int i = 0; i < people.size() - 1; i++) {
 			for (int j = i + 1; j < people.size(); j++) {
 				Couple couple = new Couple();
 				if (people.get(i).birthDate.getTime() < people.get(j).birthDate.getTime()) {
-					couple.firstPerson = people.get(i);
-					couple.secondPerson = people.get(j);
+					couple.youngest = people.get(i);
+					couple.oldest = people.get(j);
 				} else {
-					couple.firstPerson = people.get(j);
-					couple.secondPerson = people.get(i);
+					couple.youngest = people.get(j);
+					couple.oldest = people.get(i);
 				}
-				couple.difference = couple.secondPerson.birthDate.getTime() - couple.firstPerson.birthDate.getTime();
-				tr.add(couple);
+				couple.difference = couple.oldest.birthDate.getTime() - couple.youngest.birthDate.getTime();
+				results.add(couple);
 			}
 		}
 
-		if (tr.size() < 1) {
+		if (results.size() < 1) {
 			return new Couple();
 		}
 
-		Couple answer = tr.get(0);
-		for (Couple potentialResult : tr) {
+		Couple answer = results.get(0);
+		for (Couple potentialResult : results) {
 			switch (criteria) {
 				case CLOSEST:
 					if (potentialResult.difference < answer.difference) {

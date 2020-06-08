@@ -1,6 +1,6 @@
 package algorithm;
 public class Couple {
-	public Person firstPerson;
-	public Person secondPerson;
+	public Person youngest;
+	public Person oldest;
 	public long difference;
 }
