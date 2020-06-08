@@ -9,7 +9,7 @@ public class Finder {
 		this.people = people;
 	}
 
-	public F find(FT ft) {
+	public F find(Criteria criteria) {
 		List<F> tr = new ArrayList<F>();
 
 		for (int i = 0; i < people.size() - 1; i++) {
@@ -33,7 +33,7 @@ public class Finder {
 
 		F answer = tr.get(0);
 		for (F result : tr) {
-			switch (ft) {
+			switch (criteria) {
 				case One :
 					if (result.D < answer.D) {
 						answer = result;
