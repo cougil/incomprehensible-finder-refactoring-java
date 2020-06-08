@@ -39,7 +39,7 @@ public class FinderTests {
     public void Returns_Empty_Results_When_Given_Empty_List() {
         Finder finder = new Finder(list);
 
-        Pair pair = finder.find(Criteria.One);
+        Pair pair = finder.find(Criteria.CLOSEST);
         assertEquals(null, pair.firstPerson);
 
         assertEquals(null, pair.secondPerson);
@@ -52,7 +52,7 @@ public class FinderTests {
 
         Finder finder = new Finder(list);
 
-        Pair pair = finder.find(Criteria.One);
+        Pair pair = finder.find(Criteria.CLOSEST);
 
         assertEquals(null, pair.firstPerson);
         assertEquals(null, pair.secondPerson);
@@ -65,7 +65,7 @@ public class FinderTests {
         list.add(greg);
         Finder finder = new Finder(list);
 
-        Pair pair = finder.find(Criteria.One);
+        Pair pair = finder.find(Criteria.CLOSEST);
 
         assertEquals(sue, pair.firstPerson);
         assertEquals(greg, pair.secondPerson);
@@ -79,7 +79,7 @@ public class FinderTests {
 
         Finder finder = new Finder(list);
 
-        Pair pair = finder.find(Criteria.Two);
+        Pair pair = finder.find(Criteria.FARTHEST);
 
         assertEquals(greg, pair.firstPerson);
         assertEquals(mike, pair.secondPerson);
@@ -94,7 +94,7 @@ public class FinderTests {
         list.add(greg);
         Finder finder = new Finder(list);
 
-        Pair pair = finder.find(Criteria.Two);
+        Pair pair = finder.find(Criteria.FARTHEST);
 
         assertEquals(sue, pair.firstPerson);
         assertEquals(sarah, pair.secondPerson);
@@ -110,7 +110,7 @@ public class FinderTests {
 
         Finder finder = new Finder(list);
 
-        Pair pair = finder.find(Criteria.One);
+        Pair pair = finder.find(Criteria.CLOSEST);
 
         assertEquals(sue, pair.firstPerson);
         assertEquals(greg, pair.secondPerson);

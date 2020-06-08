@@ -14,16 +14,16 @@ public class Finder {
 
 		for (int i = 0; i < people.size() - 1; i++) {
 			for (int j = i + 1; j < people.size(); j++) {
-				Pair r = new Pair();
+				Pair pair = new Pair();
 				if (people.get(i).birthDate.getTime() < people.get(j).birthDate.getTime()) {
-					r.firstPerson = people.get(i);
-					r.secondPerson = people.get(j);
+					pair.firstPerson = people.get(i);
+					pair.secondPerson = people.get(j);
 				} else {
-					r.firstPerson = people.get(j);
-					r.secondPerson = people.get(i);
+					pair.firstPerson = people.get(j);
+					pair.secondPerson = people.get(i);
 				}
-				r.difference = r.secondPerson.birthDate.getTime() - r.firstPerson.birthDate.getTime();
-				tr.add(r);
+				pair.difference = pair.secondPerson.birthDate.getTime() - pair.firstPerson.birthDate.getTime();
+				tr.add(pair);
 			}
 		}
 
@@ -32,17 +32,17 @@ public class Finder {
 		}
 
 		Pair answer = tr.get(0);
-		for (Pair pair : tr) {
+		for (Pair potentialResult : tr) {
 			switch (criteria) {
-				case One :
-					if (pair.difference < answer.difference) {
-						answer = pair;
+				case CLOSEST:
+					if (potentialResult.difference < answer.difference) {
+						answer = potentialResult;
 					}
 					break;
 
-				case Two :
-					if (pair.difference > answer.difference) {
-						answer = pair;
+				case FARTHEST:
+					if (potentialResult.difference > answer.difference) {
+						answer = potentialResult;
 					}
 					break;
 			}
