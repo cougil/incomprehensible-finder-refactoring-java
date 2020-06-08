@@ -10,7 +10,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import algorithm.Result;
+import algorithm.Pair;
 import algorithm.Criteria;
 import algorithm.Finder;
 import algorithm.Person;
@@ -39,10 +39,10 @@ public class FinderTests {
     public void Returns_Empty_Results_When_Given_Empty_List() {
         Finder finder = new Finder(list);
 
-        Result result = finder.find(Criteria.One);
-        assertEquals(null, result.P1);
+        Pair pair = finder.find(Criteria.One);
+        assertEquals(null, pair.firstPerson);
 
-        assertEquals(null, result.P2);
+        assertEquals(null, pair.secondPerson);
     }
 
     @Test
@@ -52,10 +52,10 @@ public class FinderTests {
 
         Finder finder = new Finder(list);
 
-        Result result = finder.find(Criteria.One);
+        Pair pair = finder.find(Criteria.One);
 
-        assertEquals(null, result.P1);
-        assertEquals(null, result.P2);
+        assertEquals(null, pair.firstPerson);
+        assertEquals(null, pair.secondPerson);
     }
 
     @Test
@@ -65,10 +65,10 @@ public class FinderTests {
         list.add(greg);
         Finder finder = new Finder(list);
 
-        Result result = finder.find(Criteria.One);
+        Pair pair = finder.find(Criteria.One);
 
-        assertEquals(sue, result.P1);
-        assertEquals(greg, result.P2);
+        assertEquals(sue, pair.firstPerson);
+        assertEquals(greg, pair.secondPerson);
     }
 
     @Test
@@ -79,10 +79,10 @@ public class FinderTests {
 
         Finder finder = new Finder(list);
 
-        Result result = finder.find(Criteria.Two);
+        Pair pair = finder.find(Criteria.Two);
 
-        assertEquals(greg, result.P1);
-        assertEquals(mike, result.P2);
+        assertEquals(greg, pair.firstPerson);
+        assertEquals(mike, pair.secondPerson);
     }
 
     @Test
@@ -94,10 +94,10 @@ public class FinderTests {
         list.add(greg);
         Finder finder = new Finder(list);
 
-        Result result = finder.find(Criteria.Two);
+        Pair pair = finder.find(Criteria.Two);
 
-        assertEquals(sue, result.P1);
-        assertEquals(sarah, result.P2);
+        assertEquals(sue, pair.firstPerson);
+        assertEquals(sarah, pair.secondPerson);
     }
 
     @Test
@@ -110,10 +110,10 @@ public class FinderTests {
 
         Finder finder = new Finder(list);
 
-        Result result = finder.find(Criteria.One);
+        Pair pair = finder.find(Criteria.One);
 
-        assertEquals(sue, result.P1);
-        assertEquals(greg, result.P2);
+        assertEquals(sue, pair.firstPerson);
+        assertEquals(greg, pair.secondPerson);
     }
 
 }

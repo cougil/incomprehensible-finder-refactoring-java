@@ -9,40 +9,40 @@ public class Finder {
 		this.people = people;
 	}
 
-	public Result find(Criteria criteria) {
-		List<Result> tr = new ArrayList<Result>();
+	public Pair find(Criteria criteria) {
+		List<Pair> tr = new ArrayList<Pair>();
 
 		for (int i = 0; i < people.size() - 1; i++) {
 			for (int j = i + 1; j < people.size(); j++) {
-				Result r = new Result();
+				Pair r = new Pair();
 				if (people.get(i).birthDate.getTime() < people.get(j).birthDate.getTime()) {
-					r.P1 = people.get(i);
-					r.P2 = people.get(j);
+					r.firstPerson = people.get(i);
+					r.secondPerson = people.get(j);
 				} else {
-					r.P1 = people.get(j);
-					r.P2 = people.get(i);
+					r.firstPerson = people.get(j);
+					r.secondPerson = people.get(i);
 				}
-				r.D = r.P2.birthDate.getTime() - r.P1.birthDate.getTime();
+				r.difference = r.secondPerson.birthDate.getTime() - r.firstPerson.birthDate.getTime();
 				tr.add(r);
 			}
 		}
 
 		if (tr.size() < 1) {
-			return new Result();
+			return new Pair();
 		}
 
-		Result answer = tr.get(0);
-		for (Result result : tr) {
+		Pair answer = tr.get(0);
+		for (Pair pair : tr) {
 			switch (criteria) {
 				case One :
-					if (result.D < answer.D) {
-						answer = result;
+					if (pair.difference < answer.difference) {
+						answer = pair;
 					}
 					break;
 
 				case Two :
-					if (result.D > answer.D) {
-						answer = result;
+					if (pair.difference > answer.difference) {
+						answer = pair;
 					}
 					break;
 			}
