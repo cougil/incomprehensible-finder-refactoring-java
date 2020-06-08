@@ -9,30 +9,30 @@ public class Finder {
 		this.people = people;
 	}
 
-	public Pair find(Criteria criteria) {
-		List<Pair> tr = new ArrayList<Pair>();
+	public Couple find(Criteria criteria) {
+		List<Couple> tr = new ArrayList<Couple>();
 
 		for (int i = 0; i < people.size() - 1; i++) {
 			for (int j = i + 1; j < people.size(); j++) {
-				Pair pair = new Pair();
+				Couple couple = new Couple();
 				if (people.get(i).birthDate.getTime() < people.get(j).birthDate.getTime()) {
-					pair.firstPerson = people.get(i);
-					pair.secondPerson = people.get(j);
+					couple.firstPerson = people.get(i);
+					couple.secondPerson = people.get(j);
 				} else {
-					pair.firstPerson = people.get(j);
-					pair.secondPerson = people.get(i);
+					couple.firstPerson = people.get(j);
+					couple.secondPerson = people.get(i);
 				}
-				pair.difference = pair.secondPerson.birthDate.getTime() - pair.firstPerson.birthDate.getTime();
-				tr.add(pair);
+				couple.difference = couple.secondPerson.birthDate.getTime() - couple.firstPerson.birthDate.getTime();
+				tr.add(couple);
 			}
 		}
 
 		if (tr.size() < 1) {
-			return new Pair();
+			return new Couple();
 		}
 
-		Pair answer = tr.get(0);
-		for (Pair potentialResult : tr) {
+		Couple answer = tr.get(0);
+		for (Couple potentialResult : tr) {
 			switch (criteria) {
 				case CLOSEST:
 					if (potentialResult.difference < answer.difference) {
