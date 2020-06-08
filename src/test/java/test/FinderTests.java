@@ -16,10 +16,10 @@ import static org.junit.Assert.assertNull;
 
 public class FinderTests {
 
-    private Person sue = new Person("Sue", new Date(50, 0, 1));
-    private Person greg = new Person("Greg", new Date(52, 5, 1));
-    private Person sarah = new Person("Sarah", new Date(82, 0, 1));
-    private Person mike = new Person("Mike", new Date(79, 0, 1));
+    private Person sue = new Person(new Date(50, 0, 1));
+    private Person greg = new Person(new Date(52, 5, 1));
+    private Person sarah = new Person(new Date(82, 0, 1));
+    private Person mike = new Person(new Date(79, 0, 1));
     private List<Person> list;
     private Finder finder;
 
