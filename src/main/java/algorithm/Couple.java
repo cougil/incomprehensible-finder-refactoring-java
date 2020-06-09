@@ -1,7 +1,5 @@
 package algorithm;
 
-import java.time.Duration;
-
 public class Couple {
 
 	private Person firstPerson;
