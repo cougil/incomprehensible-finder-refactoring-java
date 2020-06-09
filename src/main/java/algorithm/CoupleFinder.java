@@ -14,7 +14,7 @@ public class CoupleFinder {
     }
 
     public Optional<Couple> find(Criteria criteria) {
-        List<Couple> results = buildResults();
+        List<Couple> results = buildCouples();
         if (results.isEmpty()) {
             return Optional.empty();
         }
@@ -33,7 +33,7 @@ public class CoupleFinder {
                         ).get());
     }
 
-    private List<Couple> buildResults() {
+    private List<Couple> buildCouples() {
         List<Couple> results = new ArrayList<>();
         people.stream().reduce((first, second) -> {
             Couple couple = first.isYoungThan(second) ?
