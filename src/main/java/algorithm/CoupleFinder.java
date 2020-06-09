@@ -15,7 +15,7 @@ public class CoupleFinder {
 
     public Optional<Couple> find(Criteria criteria) {
         List<Couple> results = buildResults();
-        if (results.size() < 1) {
+        if (results.isEmpty()) {
             return Optional.empty();
         }
         return find(criteria, results);
@@ -26,10 +26,10 @@ public class CoupleFinder {
         return Optional.of(
                 results.stream()
                         .min(Comparator.comparing(couple ->
-                                        Criteria.CLOSEST == criteria ?
-                                                (couple.getDifference() - answer.getDifference()) :
-                                                (answer.getDifference() - couple.getDifference())
-                                )
+                            Criteria.CLOSEST == criteria ?
+                                    (couple.getDifference() - answer.getDifference()) :
+                                    (answer.getDifference() - couple.getDifference())
+                            )
                         ).get());
     }
 

@@ -1,23 +1,23 @@
 package algorithm;
 public class Couple {
 
-	private Person youngest;
-	private Person oldest;
+	private Person firstPerson;
+	private Person secondPerson;
 
-	public Couple(Person youngest, Person oldest) {
-		this.youngest = youngest;
-		this.oldest = oldest;
+	public Couple(Person firstPerson, Person secondPerson) {
+		this.firstPerson = firstPerson;
+		this.secondPerson = secondPerson;
 	}
 
 	public long getDifference() {
-		return getOldest().getBirthDate().getTime() - getYoungest().getBirthDate().getTime();
+		return getSecondPerson().getBirthDate().getTime() - getFirstPerson().getBirthDate().getTime();
 	}
 
-	public Person getYoungest() {
-		return youngest;
+	public Person getFirstPerson() {
+		return firstPerson;
 	}
 
-	public Person getOldest() {
-		return oldest;
+	public Person getSecondPerson() {
+		return secondPerson;
 	}
 }
