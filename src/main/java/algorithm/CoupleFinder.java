@@ -23,24 +23,24 @@ public class CoupleFinder {
 
     private Optional<Couple> find(Criteria criteria, List<Couple> results) {
         Couple answer = results.get(0);
-        return Optional.of(
-                results.stream()
-                        .min(Comparator.comparing(couple ->
-                            Criteria.CLOSEST == criteria ?
-                                    (couple.getDifference() - answer.getDifference()) :
-                                    (answer.getDifference() - couple.getDifference())
-                            )
-                        ).get());
+        return results.stream()
+                    .min(Comparator.comparing(couple ->
+                        Criteria.CLOSEST == criteria ?
+                                (couple.getDifference() - answer.getDifference()) :
+                                (answer.getDifference() - couple.getDifference())
+                        )
+                    );
     }
 
     private List<Couple> buildCouples() {
         List<Couple> results = new ArrayList<>();
-        people.stream().reduce((first, second) -> {
-            Couple couple = first.isYoungThan(second) ?
-                    new Couple(first, second) :
-                    new Couple(second, first);
-            results.add(couple);
-            return first;
+        people.stream()
+            .reduce((first, second) -> {
+                Couple couple = first.isYoungThan(second) ?
+                        new Couple(first, second) :
+                        new Couple(second, first);
+                results.add(couple);
+                return first;
         });
         return results;
     }
