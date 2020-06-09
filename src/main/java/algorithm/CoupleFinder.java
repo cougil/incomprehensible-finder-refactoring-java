@@ -26,8 +26,8 @@ public class CoupleFinder {
         return results.stream()
                     .min(Comparator.comparing(couple ->
                         Criteria.CLOSEST == criteria ?
-                                (couple.getDifference() - answer.getDifference()) :
-                                (answer.getDifference() - couple.getDifference())
+                                (couple.agesDifference() - answer.agesDifference()) :
+                                (answer.agesDifference() - couple.agesDifference())
                         )
                     );
     }

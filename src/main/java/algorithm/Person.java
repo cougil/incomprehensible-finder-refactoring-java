@@ -1,5 +1,6 @@
 package algorithm;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.util.StringJoiner;
 
@@ -11,12 +12,8 @@ public class Person {
 		this.birthDate = birthDate;
 	}
 
-	public LocalDate getBirthDate() {
-		return birthDate;
-	}
-
-    boolean isYoungThan(Person secondPerson) {
-        return getBirthDate().isBefore(secondPerson.getBirthDate());
+	boolean isYoungThan(Person secondPerson) {
+		return birthDate.isBefore(secondPerson.birthDate);
     }
 
 	@Override
@@ -24,6 +21,10 @@ public class Person {
 		return new StringJoiner(", ", Person.class.getSimpleName() + "[", "]")
 				.add("birthDate=" + birthDate)
 				.toString();
+	}
+
+	public Duration ageBetween(Person anotherPerson) {
+		return Duration.between(birthDate.atStartOfDay(), anotherPerson.birthDate.atStartOfDay());
 	}
 }
 

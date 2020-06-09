@@ -1,6 +1,6 @@
 package algorithm;
 
-import static java.time.temporal.ChronoUnit.DAYS;
+import java.time.Duration;
 
 public class Couple {
 
@@ -12,15 +12,15 @@ public class Couple {
 		this.secondPerson = secondPerson;
 	}
 
-	public long getDifference() {
-		return DAYS.between(getFirstPerson().getBirthDate(), getSecondPerson().getBirthDate());
+	public long agesDifference() {
+		return firstPerson.ageBetween(secondPerson).toDays();
 	}
 
-	public Person getFirstPerson() {
+	public Person firstPerson() {
 		return firstPerson;
 	}
 
-	public Person getSecondPerson() {
+	public Person secondPerson() {
 		return secondPerson;
 	}
 }
