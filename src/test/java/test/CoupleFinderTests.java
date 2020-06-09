@@ -1,25 +1,25 @@
 package test;
 
 import algorithm.Couple;
-import algorithm.Criteria;
 import algorithm.CoupleFinder;
+import algorithm.Criteria;
 import algorithm.Person;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class CoupleFinderTests {
 
-    private Person sue = new Person(new Date(50, 0, 1));
-    private Person greg = new Person(new Date(52, 5, 1));
-    private Person sarah = new Person(new Date(82, 0, 1));
-    private Person mike = new Person(new Date(79, 0, 1));
+    private Person sue = new Person(LocalDate.of(1950, 1, 1));
+    private Person greg = new Person(LocalDate.of(1952, 6, 1));
+    private Person sarah = new Person(LocalDate.of(1982, 1, 1));
+    private Person mike = new Person(LocalDate.of(1979, 1, 1));
     private List<Person> list;
     private CoupleFinder coupleFinder;
 

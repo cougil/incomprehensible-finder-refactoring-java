@@ -1,22 +1,22 @@
 package algorithm;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.StringJoiner;
 
 public class Person {
 
-	private Date birthDate;
+	private LocalDate birthDate;
 
-	public Person(Date birthDate) {
+	public Person(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
 
-	public Date getBirthDate() {
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
 
     boolean isYoungThan(Person secondPerson) {
-        return getBirthDate().getTime() < secondPerson.getBirthDate().getTime();
+        return getBirthDate().isBefore(secondPerson.getBirthDate());
     }
 
 	@Override

@@ -1,4 +1,7 @@
 package algorithm;
+
+import static java.time.temporal.ChronoUnit.DAYS;
+
 public class Couple {
 
 	private Person firstPerson;
@@ -10,7 +13,7 @@ public class Couple {
 	}
 
 	public long getDifference() {
-		return getSecondPerson().getBirthDate().getTime() - getFirstPerson().getBirthDate().getTime();
+		return DAYS.between(getFirstPerson().getBirthDate(), getSecondPerson().getBirthDate());
 	}
 
 	public Person getFirstPerson() {
